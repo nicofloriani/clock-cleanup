@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Clock from "./Clock";
 
 function App() {
+  const [showClock, setShowClock] = useState(true);
   return (
     <div className="App">
-      <Clock />
-      <button className="clock-toggle">Show clock</button>
+      {showClock && <Clock />}
+      <button className="clock-toggle" onClick={() => setShowClock(!showClock)}>
+        {showClock ? "Hide Clock" : "Show Clock"}
+      </button>
     </div>
   );
 }
